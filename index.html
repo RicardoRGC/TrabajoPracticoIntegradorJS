@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Compra de Tickets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .navbar {
+      background-color: #343a40;
+    }
+
+    .card {
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+
+    .btn-secondary:hover {
+      background-color: #5a6268;
+      border-color: #545b62;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Comprar Tickets</a>
+  </nav>
+
+  <div class="container mt-4 ">
+    <!-- <h1 class="text-center">Selecciona una categoría</h1> -->
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-center">Estudiante</h2>
+            <p class="card-text text-center">Tiene un Descuento</p>
+            <p class="card-text text-center">80%</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-center">Trainee</h2>
+            <p class="card-text text-center">Tiene un Descuento</p>
+            <p class="card-text text-center">50%</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-center">Junior</h2>
+            <p class="card-text text-center">Tiene un Descuento</p>
+            <p class="card-text text-center">15%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="text-center mt-4">Valor de Tickets $200</h1>
+    <form>
+        <div class="row justify-content-center">
+
+            <div class="form-group col-md-6">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre">
+            </div>
+            
+            <div class="form-group col-md-6">
+                <label for="apellido">Apellido:</label>
+                <input type="text" class="form-control" id="apellido" placeholder="Ingresa tu apellido">
+            </div>
+        </div>
+
+      <div class="form-group">
+        <label for="correo">Correo:</label>
+        <input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo electrónico">
+      </div>
+
+      <div class="form-group">
+        <label for="cantidad">Cantidad de Compras:</label>
+        <input type="number" class="form-control" id="cantidad" required>
+      </div>
+
+      <div class="form-group">
+        <label for="categoria">Categoría:</label>
+        <select class="form-control" id="categoria" onchange="mostrarDescuento()" required>
+          <option value="">Selecciona una categoría</option>
+          <option value="categoria1">Categoría 1</option>
+          <option value="categoria2">Categoría 2</option>
+          <option value="categoria3">Categoría 3</option>
+        </select>
+      </div>
+
+      <div class="form-group col justify-content-center ">
+        <label  for="descuento"></label>
+        <span id="descuento"></span>
+        
+            <!-- <h2 class="text-center mt-4">Resumen de Compra</h2> -->
+            <div id="resumen"></div>
+            <!-- <div id="resultado" class="text-center"  ></div> -->
+            <div id="resultado" class="text-center bg-info p-3">Total a Pagar $</div>
+
+        </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-primary btn-block">Resumen</button>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-2">
+        <div class="col-md-4">
+          <button type="button" class="btn btn-secondary btn-block" onclick="borrarFormulario()">Borrar Formulario</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Preguntas frecuentes</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contáctanos</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Prensa</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Conferencias</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Términos y condiciones</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Privacidad</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Estudiantes</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  
+
+  <script>
+    function mostrarDescuento() {
+      var categoria = document.getElementById("categoria").value;
+      var descuentoLabel = document.getElementById("descuento");
+
+      if (categoria === "categoria1") {
+        descuentoLabel.textContent = " Descuento: 10%";
+      } else if (categoria === "categoria2") {
+        descuentoLabel.textContent = "Descuento: 20%";
+      } else if (categoria === "categoria3") {
+        descuentoLabel.textContent = "Descuento: 30%";
+      } else {
+        descuentoLabel.textContent = "";
+      }
+    }
+
+    function calcularTotal() {
+      var cantidad = parseInt(document.getElementById("cantidad").value);
+      var categoria = document.getElementById("categoria").value;
+      var precio = 200;
+      var descuento = 0;
+
+      if (categoria === "categoria1") {
+        descuento = 0.1;
+      } else if (categoria === "categoria2") {
+        descuento = 0.2;
+      } else if (categoria === "categoria3") {
+        descuento = 0.3;
+      }
+
+      var total = cantidad * precio * (1 - descuento);
+
+      var resumen = document.getElementById("resumen");
+    //   resumen.innerHTML = "";
+    //   resumen.innerHTML += "<p>Cantidad: " + cantidad + "</p>";
+    //   resumen.innerHTML += "<p>Categoría: " + categoria + "</p>";
+    //   resumen.innerHTML += "<p>Precio Total: $" + total.toFixed(2) + "</p>";
+
+      var resultado = document.getElementById("resultado");
+    //   resultado.innerHTML = "<p>El precio total con descuento es: $" + total.toFixed(2) + "</p>";
+      resultado.innerHTML = '<p class="font-weight-bold text-white">El precio total con descuento es: $'+ total.toFixed(2)+'</p>';
+    }
+
+    function borrarFormulario() {
+      document.getElementById("cantidad").value = "";
+      document.getElementById("categoria").selectedIndex = 0;
+      document.getElementById("descuento").textContent = "";
+      document.getElementById("resumen").innerHTML = "";
+      document.getElementById("resultado").innerHTML = "";
+    }
+
+    document.querySelector("form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Evitar envío del formulario si los campos están vacíos
+      var cantidad = document.getElementById("cantidad").value;
+      var categoria = document.getElementById("categoria").value;
+
+      if (cantidad === "" || categoria === "") {
+        alert("Por favor, completa los campos de Cantidad y Categoría.");
+      } else {
+        calcularTotal();
+      }
+    });
+  </script>
+</body>
+</html>
