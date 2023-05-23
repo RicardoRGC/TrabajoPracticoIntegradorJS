@@ -115,9 +115,9 @@
         <label for="categoria">Categoría:</label>
         <select class="form-control" id="categoria" onchange="mostrarDescuento()" required>
           <option value="">Selecciona una categoría</option>
-          <option value="categoria1">Categoría 1</option>
-          <option value="categoria2">Categoría 2</option>
-          <option value="categoria3">Categoría 3</option>
+          <option value="categoria1">Estudiante</option>
+          <option value="categoria2">Trainee</option>
+          <option value="categoria3">Junior</option>
         </select>
       </div>
 
@@ -209,11 +209,11 @@
       var descuentoLabel = document.getElementById("descuento");
 
       if (categoria === "categoria1") {
-        descuentoLabel.textContent = " Descuento: 10%";
+        descuentoLabel.textContent = " Descuento: 80%";
       } else if (categoria === "categoria2") {
-        descuentoLabel.textContent = "Descuento: 20%";
+        descuentoLabel.textContent = "Descuento: 50%";
       } else if (categoria === "categoria3") {
-        descuentoLabel.textContent = "Descuento: 30%";
+        descuentoLabel.textContent = "Descuento: 10%";
       } else {
         descuentoLabel.textContent = "";
       }
